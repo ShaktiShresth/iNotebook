@@ -1,0 +1,14 @@
+i{
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 5px;
+}
+i:hover{
+  box-shadow: 2px 2px 1px 1px gray;
+}
+.fa-pen-to-square:hover{
+  color: green;
+}
+.fa-trash:hover{
+  color: red;
+}
