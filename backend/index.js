@@ -1,20 +1,21 @@
-const connectToMongo = require("./db");
 const express = require("express");
 const cors = require("cors");
-
-connectToMongo();
+const connectToMongo = require("./db");
+require("dotenv").config();
 
 const app = express();
+
+connectToMongo();
 
 app.use(cors());
 app.use(express.json());
 
-//Available routes
+// Available routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
 
-app.listen(process.env.PORT, () => {
-  console.log(
-    `inotebook backend listening on port ${process.env.PORT || 5000}`
-  );
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
+  console.log(`inotebook backend listening on port ${port}`);
 });
