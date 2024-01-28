@@ -12,17 +12,20 @@ const Signup = (props) => {
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    const response = await fetch("http://localhost:5000/api/auth/createuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: userCredentials.name,
-        email: userCredentials.email,
-        password: userCredentials.password,
-      }),
-    });
+    const response = await fetch(
+      "https://i-notebook-server.vercel.app/api/auth/createuser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: userCredentials.name,
+          email: userCredentials.email,
+          password: userCredentials.password,
+        }),
+      }
+    );
     const json = await response.json();
     console.log(json);
     if (response.status === 200 && response.ok === true) {
